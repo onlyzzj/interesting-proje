@@ -1,0 +1,33 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+C:\Users\Administrator\Desktop\循迹小车（次）\24l01无线模块接收.uvproj
+Project File Date:  05/18/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+compiling qudong.c...
+compiling xunji.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ZUOHOUTUI?QUDONG
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?YOUHOUTUI?QUDONG
+Program Size: data=21.0 xdata=0 code=486
+creating hex file from ".\output\24l01无线模块接收"...
+".\output\24l01无线模块接收" - 0 Error(s), 2 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling qudong.c...
+compiling xunji.c...
+linking...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ZUOHOUTUI?QUDONG
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?YOUHOUTUI?QUDONG
+Program Size: data=21.0 xdata=0 code=486
+creating hex file from ".\output\24l01无线模块接收"...
+".\output\24l01无线模块接收" - 0 Error(s), 2 Warning(s).

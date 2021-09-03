@@ -1,0 +1,144 @@
+C51 COMPILER V9.54   MAIN                                                                  03/02/2016 16:35:20 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\output\main.obj
+COMPILER INVOKED BY: D:\Keil_v5\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND PRINT(.\list\main.lst) TABS(2) OBJECT(.
+                    -\output\main.obj)
+
+line level    source
+
+   1          #include "common.h"
+   2          #include "nRF24L01_TX.h"
+   3          #include"delay.h"
+   4          
+   5          
+   6          void main(void)
+   7          {
+   8   1        P0=0xff;//初始化IO口
+   9   1        P1=0xff;
+  10   1        P2=0xff;
+  11   1        P3=0xff;
+  12   1        delay_us(100);
+  13   1        nRF24L01_Init();//NRF24L01初始化
+  14   1        while(1)
+  15   1        {
+  16   2          if(Key1==0)
+  17   2          {
+  18   3            delay_ms(10);
+  19   3            if(Key1==0)
+  20   3            {   
+  21   4              nRF24L01_Set_TX_Mode(&TX_Buffer1[0]);//发送数据
+  22   4              while(Check_Ack());//等待发送完成
+  23   4              LED1=0;
+  24   4              delay_ms(10);
+  25   4            }
+  26   3          }
+  27   2          if(Key2==0)
+  28   2          {
+  29   3            delay_ms(10);
+  30   3            if(Key2==0)
+  31   3            {   
+  32   4              nRF24L01_Set_TX_Mode(&TX_Buffer2[0]);//发送数据
+  33   4              while(Check_Ack());//等待发送完成
+  34   4              LED2=0;
+  35   4              delay_ms(10);
+  36   4            }
+  37   3          }
+  38   2          if(Key3==0)
+  39   2          {
+  40   3            delay_ms(10);
+  41   3            if(Key3==0)
+  42   3            {   
+  43   4              nRF24L01_Set_TX_Mode(&TX_Buffer3[0]);//发送数据
+  44   4              while(Check_Ack());//等待发送完成
+  45   4              LED3=0;
+  46   4              delay_ms(10);
+  47   4            }
+  48   3          }
+  49   2          if(Key4==0)
+  50   2          {
+  51   3            delay_ms(10);
+  52   3            if(Key4==0)
+  53   3            {   
+  54   4              nRF24L01_Set_TX_Mode(&TX_Buffer4[0]);//发送数据
+C51 COMPILER V9.54   MAIN                                                                  03/02/2016 16:35:20 PAGE 2   
+
+  55   4              while(Check_Ack());//等待发送完成
+  56   4              LED4=0;
+  57   4              delay_ms(10);
+  58   4            }
+  59   3          }
+  60   2      //    if(Key5==0)
+  61   2      //    {
+  62   2      //      delay_ms(10);
+  63   2      //      if(Key5==0)
+  64   2      //      {   
+  65   2      //        nRF24L01_Set_TX_Mode(&TX_Buffer5[0]);//发送数据
+  66   2      //        while(Check_Ack());//等待发送完成
+  67   2      //        LED5=0;
+  68   2      //        delay_ms(10);
+  69   2      //      }
+  70   2      //    }
+  71   2      //    if(Key6==0)
+  72   2      //    {
+  73   2      //      delay_ms(10);
+  74   2      //      if(Key6==0)
+  75   2      //      {   
+  76   2      //        nRF24L01_Set_TX_Mode(&TX_Buffer6[0]);//发送数据
+  77   2      //        while(Check_Ack());//等待发送完成
+  78   2      //        LED6=0;
+  79   2      //        delay_ms(10);
+  80   2      //      }
+  81   2      //    }
+  82   2      //    if(Key7==0)
+  83   2      //    {
+  84   2      //      delay_ms(10);
+  85   2      //      if(Key7==0)
+  86   2      //      {   
+  87   2      //        nRF24L01_Set_TX_Mode(&TX_Buffer7[0]);//发送数据
+  88   2      //        while(Check_Ack());//等待发送完成
+  89   2      //        LED7=0;
+  90   2      //        delay_ms(10);
+  91   2      //      }
+  92   2      //    }
+  93   2      //    if(Key8==0)
+  94   2      //    {
+  95   2      //      delay_ms(10);
+  96   2      //      if(Key8==0)
+  97   2      //      {   
+  98   2      //        nRF24L01_Set_TX_Mode(&TX_Buffer8[0]);//发送数据
+  99   2      //        while(Check_Ack());//等待发送完成
+ 100   2      //        LED8=0;
+ 101   2      //        delay_ms(10);
+ 102   2      //      }
+ 103   2      //    }
+ 104   2          else
+ 105   2          {
+ 106   3            LED1=1;
+ 107   3            LED2=1;
+ 108   3            LED3=1;
+ 109   3            LED4=1;
+ 110   3            LED5=1;
+ 111   3            LED6=1;
+ 112   3            LED7=1;
+ 113   3            LED8=1;
+ 114   3          }     
+ 115   2        }
+ 116   1      }
+C51 COMPILER V9.54   MAIN                                                                  03/02/2016 16:35:20 PAGE 3   
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    192    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

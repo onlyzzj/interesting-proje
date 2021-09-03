@@ -1,0 +1,56 @@
+#include"led.h"
+
+
+void led(void)
+{
+	delay_us(1000);
+	nRF24L01_Init();
+	nRF24L01_Set_RX_Mode();
+	delay_ms(100);
+	if(nRF24L01_RX_Data())
+	{
+		if(RX_Buffer[0]==0xfe)
+		{
+			LED1=0;
+		} 
+		if(RX_Buffer[0]==0xfb)
+		{
+			LED2=0;	
+		}
+		if(RX_Buffer[0]==0xfd)
+		{
+			LED3=0;
+		}
+		if(RX_Buffer[0]==0xf7)
+		{
+			LED4=0;		
+		}
+		if(RX_Buffer[0]==0xef)
+		{
+			LED5=0;
+		} 
+		if(RX_Buffer[0]==0xdf)
+		{
+			LED6=0;	
+		}
+		if(RX_Buffer[0]==0xbf)
+		{
+			LED7=0;
+		}
+		if(RX_Buffer[0]==0x7f)
+		{
+			LED8=0;
+		}
+	}
+	else
+	{
+		LED1=1;
+		LED2=1;
+		LED3=1;
+		LED4=1;
+		LED5=1;
+		LED6=1;
+		LED7=1;
+		LED8=1;
+	}
+}

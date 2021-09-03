@@ -1,0 +1,151 @@
+C51 COMPILER V9.00   NRF24L01_RX                                                           05/17/2015 23:14:58 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE NRF24L01_RX
+OBJECT MODULE PLACED IN .\output\NRF24L01_RX.obj
+COMPILER INVOKED BY: d:\Keil\C51\BIN\C51.EXE NRF24L01_RX.c BROWSE DEBUG OBJECTEXTEND PRINT(.\list\NRF24L01_RX.lst) OBJEC
+                    -T(.\output\NRF24L01_RX.obj)
+
+line level    source
+
+   1          #include "nRF24L01_RX.h"
+   2          #include"delay.h"
+   3          
+   4          uchar sta; //×´Ì¬±äÁ¿ 
+   5          uchar code TX_Addr[]={0x34,0x43,0x10,0x10,0x01};
+   6          uchar code TX_Buffer[]={0xfe,0xfd,0xfb,0xf7,0xef,0xdf,0xbf,0x7f};
+   7          uchar RX_Buffer[RX_DATA_WITDH];
+   8          
+   9          
+  10          void nRF24L01_Init(void)
+  11          {
+  12   1              delay_us(2000);
+  13   1              CE=0;
+  14   1              CSN=1;
+  15   1              SCK=0;
+  16   1              IRQ=1;
+  17   1      }
+  18          
+  19          uchar SPI_RW(uchar byte)
+  20          {
+  21   1              uchar i;
+  22   1              for(i=0;i<8;i++)
+  23   1              {
+  24   2                      if(byte&0x80)
+  25   2                              MOSI=1;
+  26   2                      else 
+  27   2                              MOSI=0;
+  28   2                      byte<<=1;
+  29   2                      SCK=1;
+  30   2                      if(MISO)
+  31   2                              byte|=0x01;
+  32   2                      SCK=0;
+  33   2              }
+  34   1              return byte;
+  35   1      }
+  36          
+  37          uchar SPI_W_Reg(uchar reg,uchar value)
+  38          {
+  39   1              uchar status;
+  40   1              CSN=0;
+  41   1              status=SPI_RW(reg);
+  42   1              SPI_RW(value);
+  43   1              CSN=1;
+  44   1              return status;
+  45   1      }
+  46          
+  47          uchar SPI_R_byte(uchar reg)
+  48          {
+  49   1              uchar status;
+  50   1              CSN=0;
+  51   1              SPI_RW(reg);
+  52   1              status=SPI_RW(0);
+  53   1              CSN=1;
+  54   1              return status;
+C51 COMPILER V9.00   NRF24L01_RX                                                           05/17/2015 23:14:58 PAGE 2   
+
+  55   1      }
+  56          
+  57          uchar SPI_R_DBuffer(uchar reg,uchar *Dat_Buffer,uchar Dlen)
+  58          {
+  59   1              uchar reg_value,i;
+  60   1              CSN=0;
+  61   1              reg_value=SPI_RW(reg);
+  62   1              for(i=0;i<Dlen;i++)
+  63   1              {
+  64   2                      Dat_Buffer[i]=SPI_RW(0);
+  65   2              }
+  66   1              CSN=1;
+  67   1              return reg_value;
+  68   1      }
+  69          
+  70          uchar SPI_W_DBuffer(uchar reg,uchar *TX_Dat_Buffer,uchar Dlen)
+  71          {
+  72   1              uchar reg_value,i;
+  73   1              CSN=0;
+  74   1              reg_value=SPI_RW(reg);
+  75   1              for(i=0;i<Dlen;i++)
+  76   1              {
+  77   2                      SPI_RW(TX_Dat_Buffer[i]);
+  78   2              }
+  79   1              CSN=1;
+  80   1              return reg_value;       
+  81   1      }
+  82          
+  83          void nRF24L01_Set_RX_Mode(void)
+  84          {
+  85   1              CE=0;//´ý»ú
+  86   1              SPI_W_DBuffer(W_REGISTER+TX_ADDR,TX_Addr,TX_ADDR_WITDH);
+  87   1              SPI_W_DBuffer(W_REGISTER+RX_ADDR_P0,TX_Addr,TX_ADDR_WITDH);
+  88   1              SPI_W_Reg(W_REGISTER+EN_AA,0x01);//auot ack
+  89   1              SPI_W_Reg(W_REGISTER+EN_RX_ADDR,0x01);
+  90   1              SPI_W_Reg(W_REGISTER+SETUP_RETR,0x0a);
+  91   1              SPI_W_Reg(W_REGISTER+RX_PW_P0,RX_DATA_WITDH);
+  92   1              SPI_W_Reg(W_REGISTER+RF_CH,0x40);
+  93   1              SPI_W_Reg(W_REGISTER+RF_SETUP,0x07);//0db,lna
+  94   1              SPI_W_Reg(W_REGISTER+CONFIG,0x0f);
+  95   1              CE=1;
+  96   1              delay_ms(5);
+  97   1      }
+  98          
+  99          uchar nRF24L01_RX_Data(void)
+ 100          {
+ 101   1              sta=SPI_R_byte(R_REGISTER+STATUS);
+ 102   1              if(RX_DR)
+ 103   1              {
+ 104   2                      CE=0;
+ 105   2                      SPI_R_DBuffer(R_RX_PLOAD,RX_Buffer,RX_DATA_WITDH);
+ 106   2                      SPI_W_Reg(W_REGISTER+STATUS,0xff);
+ 107   2                      CSN=0;
+ 108   2                      SPI_RW(FLUSH_RX);
+ 109   2                      CSN=1;
+ 110   2                      return 1;
+ 111   2              }
+ 112   1              else
+ 113   1                      return 0;
+ 114   1              
+ 115   1      }
+ 116          
+C51 COMPILER V9.00   NRF24L01_RX                                                           05/17/2015 23:14:58 PAGE 3   
+
+ 117          
+ 118          
+ 119          
+ 120          
+ 121          
+ 122          
+ 123          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    309    ----
+   CONSTANT SIZE    =     13    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      9      10
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

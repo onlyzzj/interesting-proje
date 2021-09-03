@@ -1,0 +1,5 @@
+".\output\main.obj",
+".\output\qudong.obj",
+".\output\xunji.obj" 
+TO ".\output\24l01无线模块接收" 
+PRINT(".\list\24l01无线模块接收.m51") RAMSIZE(256) 

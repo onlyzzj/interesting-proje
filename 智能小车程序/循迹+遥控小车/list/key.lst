@@ -1,0 +1,104 @@
+C51 COMPILER V9.00   KEY                                                                   05/18/2015 22:55:13 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE KEY
+OBJECT MODULE PLACED IN .\output\key.obj
+COMPILER INVOKED BY: d:\Keil\C51\BIN\C51.EXE key.c BROWSE DEBUG OBJECTEXTEND PRINT(.\list\key.lst) OBJECT(.\output\key.o
+                    -bj)
+
+line level    source
+
+   1          #include"key.h"
+   2          #include"delay.h"
+   3          
+   4          int x=40;
+   5          int y=40;
+   6          
+   7          void zuo_speed_low(void)//按键处理占空比，左电机减速
+   8          {
+   9   1              if(zuo_Key_dec==0)
+  10   1              {
+  11   2                      delay_ms(10);
+  12   2                      if(zuo_Key_dec==0)
+  13   2                      {       
+  14   3                              while(!zuo_Key_dec);//等待键松开
+  15   3                      x=x+5;
+  16   3                              if(x>=100)
+  17   3                      {
+  18   4                              x=100;
+  19   4                      } 
+  20   3                      }
+  21   2              }
+  22   1      }
+  23          
+  24          
+  25          void zuo_speed_high(void)//按键处理占空比，左电机加速
+  26          {
+  27   1              if(zuo_Key_add==0)
+  28   1              {
+  29   2                      delay_ms(10);
+  30   2                      if(zuo_Key_add==0)
+  31   2                      {       
+  32   3                              while(!zuo_Key_add);//等待键松开
+  33   3                      x=x-5;
+  34   3                              if(x<=0)
+  35   3                      {
+  36   4                              x=0;
+  37   4                      } 
+  38   3                      }
+  39   2              } 
+  40   1      }
+  41          
+  42          
+  43          void you_speed_low(void)//按键处理占空比，右电机减速
+  44          {
+  45   1              if(you_Key_dec==0)
+  46   1              {
+  47   2                      delay_ms(10);
+  48   2                      if(you_Key_dec==0)
+  49   2                      {       
+  50   3                              while(!you_Key_dec);//等待键松开
+  51   3                      y=y+5;
+  52   3                              if(y>=100)
+  53   3                      {
+  54   4                              y=100;
+C51 COMPILER V9.00   KEY                                                                   05/18/2015 22:55:13 PAGE 2   
+
+  55   4                      } 
+  56   3                      }
+  57   2              }
+  58   1      }
+  59          
+  60          void you_speed_high(void)//按键处理占空比，右电机加速
+  61          {
+  62   1              if(you_Key_add==0)
+  63   1              {
+  64   2                      delay_ms(10);
+  65   2                      if(you_Key_add==0)
+  66   2                      {       
+  67   3                              while(!you_Key_add);//等待键松开
+  68   3                      y=y-5;
+  69   3                              if(y<=0)
+  70   3                      {
+  71   4                              y=0;
+  72   4                      } 
+  73   3                      }
+  74   2              } 
+  75   1      }
+  76          
+  77          
+  78          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    188    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

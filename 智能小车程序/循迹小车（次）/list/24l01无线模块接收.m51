@@ -1,0 +1,336 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/18/2015  16:13:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE .\output\main.obj, .\output\qudong.obj, .\output\xunji.obj TO .\output\24l01无线模块接收 PRINT 
+>> (.\list\24l01无线模块接收.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\output\main.obj (MAIN)
+  .\output\qudong.obj (QUDONG)
+  .\output\xunji.obj (XUNJI)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  .\output\24l01无线模块接收 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0008H     UNIT         _DATA_GROUP_
+            DATA    0010H     0004H     UNIT         ?DT?XUNJI
+            IDATA   0014H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0008H     UNIT         ?PR?MAIN?MAIN
+            CODE    000BH     0003H     ABSOLUTE     
+            CODE    000EH     0094H     UNIT         ?PR?XUNJI?XUNJI
+            CODE    00A2H     008CH     UNIT         ?C_C51STARTUP
+            CODE    012EH     0041H     UNIT         ?PR?TIMER0?MAIN
+            CODE    016FH     0013H     UNIT         ?PR?_ZUO_SPEED?QUDONG
+            CODE    0182H     0010H     UNIT         ?PR?INIT_TIMER0?MAIN
+            CODE    0192H     000EH     UNIT         ?PR?_ZHIXIAN?QUDONG
+            CODE    01A0H     000EH     UNIT         ?PR?_ZUOZHUAN?QUDONG
+            CODE    01AEH     000EH     UNIT         ?PR?_YOUZHUAN?QUDONG
+            CODE    01BCH     000DH     UNIT         ?PR?_YOU_SPEED?QUDONG
+            CODE    01C9H     0009H     UNIT         ?C_INITSEG
+            CODE    01D2H     0005H     UNIT         ?PR?ZUOQIANJIN?QUDONG
+            CODE    01D7H     0005H     UNIT         ?PR?ZUOHOUTUI?QUDONG
+            CODE    01DCH     0005H     UNIT         ?PR?YOUQIANJIN?QUDONG
+            CODE    01E1H     0005H     UNIT         ?PR?YOUHOUTUI?QUDONG
+
+
+
+OVERLAY MAP OF MODULE:   .\output\24l01无线模块接收 (MAIN)
+
+
+SEGMENT                          DATA_GROUP 
+  +--> CALLED SEGMENT          START    LENGTH
+----------------------------------------------
+?C_C51STARTUP                  -----    -----
+  +--> ?PR?MAIN?MAIN
+  +--> ?C_INITSEG
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2015  16:13:42  PAGE 2
+
+
+
+?PR?MAIN?MAIN                  -----    -----
+  +--> ?PR?INIT_TIMER0?MAIN
+  +--> ?PR?XUNJI?XUNJI
+
+?PR?XUNJI?XUNJI                -----    -----
+  +--> ?PR?_ZHIXIAN?QUDONG
+  +--> ?PR?_ZUOZHUAN?QUDONG
+  +--> ?PR?_YOUZHUAN?QUDONG
+
+?PR?_ZHIXIAN?QUDONG            0008H    0008H
+  +--> ?PR?_ZUO_SPEED?QUDONG
+  +--> ?PR?_YOU_SPEED?QUDONG
+
+?PR?_ZUO_SPEED?QUDONG          -----    -----
+  +--> ?PR?ZUOQIANJIN?QUDONG
+  +--> ?PR?YOUQIANJIN?QUDONG
+
+?PR?_ZUOZHUAN?QUDONG           0008H    0008H
+  +--> ?PR?_ZUO_SPEED?QUDONG
+  +--> ?PR?_YOU_SPEED?QUDONG
+
+?PR?_YOUZHUAN?QUDONG           0008H    0008H
+  +--> ?PR?_ZUO_SPEED?QUDONG
+  +--> ?PR?_YOU_SPEED?QUDONG
+
+
+
+SYMBOL TABLE OF MODULE:  .\output\24l01无线模块接收 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0003H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:00A8H.1       PUBLIC        ET0
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  C:012EH         PUBLIC        timer0
+  B:0088H.4       PUBLIC        TR0
+  D:00C8H         PUBLIC        T2CON
+  C:0182H         PUBLIC        init_timer0
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          INIT_TIMER0
+  C:0182H         LINE#         5
+  C:0182H         LINE#         6
+  C:0182H         LINE#         7
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2015  16:13:42  PAGE 3
+
+
+  C:0185H         LINE#         8
+  C:0188H         LINE#         9
+  C:018BH         LINE#         10
+  C:018DH         LINE#         11
+  C:018FH         LINE#         12
+  C:0191H         LINE#         13
+  -------         ENDPROC       INIT_TIMER0
+  -------         PROC          MAIN
+  C:0003H         LINE#         15
+  C:0003H         LINE#         16
+  C:0003H         LINE#         17
+  C:0006H         LINE#         18
+  C:0006H         LINE#         19
+  C:0006H         LINE#         20
+  C:0009H         LINE#         21
+  -------         ENDPROC       MAIN
+  -------         PROC          TIMER0
+  C:012EH         LINE#         25
+  C:0132H         LINE#         27
+  C:0135H         LINE#         28
+  C:0138H         LINE#         29
+  C:0140H         LINE#         30
+  C:014BH         LINE#         31
+  C:014BH         LINE#         32
+  C:0151H         LINE#         33
+  C:0151H         LINE#         34
+  C:0159H         LINE#         35
+  C:0164H         LINE#         36
+  C:0164H         LINE#         37
+  C:016AH         LINE#         38
+  C:016AH         LINE#         39
+  -------         ENDPROC       TIMER0
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        QUDONG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:0192H         PUBLIC        _zhixian
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  C:01E1H         PUBLIC        youhoutui
+  C:01D7H         PUBLIC        zuohoutui
+  D:00B0H         PUBLIC        P3
+  C:01AEH         PUBLIC        _youzhuan
+  B:0080H.0       PUBLIC        in1
+  C:01A0H         PUBLIC        _zuozhuan
+  B:0080H.1       PUBLIC        in2
+  B:0080H.2       PUBLIC        in3
+  B:0080H.3       PUBLIC        in4
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0090H.1       PUBLIC        EN1
+  B:0090H.2       PUBLIC        EN2
+  C:01DCH         PUBLIC        youqianjin
+  C:01D2H         PUBLIC        zuoqianjin
+  C:01BCH         PUBLIC        _you_speed
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2015  16:13:42  PAGE 4
+
+
+  C:0175H         PUBLIC        _zuo_speed
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          ZUOQIANJIN
+  C:01D2H         LINE#         4
+  C:01D2H         LINE#         5
+  C:01D2H         LINE#         6
+  C:01D4H         LINE#         7
+  C:01D6H         LINE#         8
+  -------         ENDPROC       ZUOQIANJIN
+  -------         PROC          ZUOHOUTUI
+  C:01D7H         LINE#         10
+  C:01D7H         LINE#         11
+  C:01D7H         LINE#         12
+  C:01D9H         LINE#         13
+  C:01DBH         LINE#         14
+  -------         ENDPROC       ZUOHOUTUI
+  -------         PROC          YOUQIANJIN
+  C:01DCH         LINE#         16
+  C:01DCH         LINE#         17
+  C:01DCH         LINE#         18
+  C:01DEH         LINE#         19
+  C:01E0H         LINE#         20
+  -------         ENDPROC       YOUQIANJIN
+  -------         PROC          YOUHOUTUI
+  C:01E1H         LINE#         22
+  C:01E1H         LINE#         23
+  C:01E1H         LINE#         24
+  C:01E3H         LINE#         25
+  C:01E5H         LINE#         26
+  -------         ENDPROC       YOUHOUTUI
+  C:016FH         SYMBOL        L?0015
+  -------         PROC          L?0014
+  -------         ENDPROC       L?0014
+  C:016FH         SYMBOL        L?0015
+  -------         PROC          _ZUO_SPEED
+  D:0006H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  C:0175H         LINE#         29
+  C:0175H         LINE#         30
+  C:0175H         LINE#         31
+  C:017CH         LINE#         32
+  C:017FH         LINE#         34
+  C:0181H         LINE#         35
+  -------         ENDPROC       _ZUO_SPEED
+  -------         PROC          _YOU_SPEED
+  D:0006H         SYMBOL        x
+  D:0004H         SYMBOL        y
+  C:01BCH         LINE#         37
+  C:01BCH         LINE#         38
+  C:01BCH         LINE#         39
+  C:01C3H         LINE#         40
+  C:01C6H         LINE#         42
+  C:01C8H         LINE#         43
+  -------         ENDPROC       _YOU_SPEED
+  -------         PROC          _ZHIXIAN
+  D:0082H         SYMBOL        x1
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2015  16:13:42  PAGE 5
+
+
+  D:0004H         SYMBOL        y1
+  D:0002H         SYMBOL        x2
+  D:000EH         SYMBOL        y2
+  C:0192H         LINE#         45
+  C:0192H         LINE#         46
+  C:0192H         LINE#         47
+  C:0192H         LINE#         48
+  C:0192H         LINE#         49
+  C:0195H         LINE#         50
+  -------         ENDPROC       _ZHIXIAN
+  -------         PROC          _ZUOZHUAN
+  D:0082H         SYMBOL        x1
+  D:0004H         SYMBOL        y1
+  D:0002H         SYMBOL        x2
+  D:000EH         SYMBOL        y2
+  C:01A0H         LINE#         53
+  C:01A0H         LINE#         54
+  C:01A0H         LINE#         55
+  C:01A0H         LINE#         56
+  C:01A0H         LINE#         57
+  C:01A3H         LINE#         58
+  -------         ENDPROC       _ZUOZHUAN
+  -------         PROC          _YOUZHUAN
+  D:0082H         SYMBOL        x1
+  D:0004H         SYMBOL        y1
+  D:0002H         SYMBOL        x2
+  D:000EH         SYMBOL        y2
+  C:01AEH         LINE#         60
+  C:01AEH         LINE#         61
+  C:01AEH         LINE#         62
+  C:01AEH         LINE#         63
+  C:01AEH         LINE#         64
+  C:01B1H         LINE#         65
+  -------         ENDPROC       _YOUZHUAN
+  -------         ENDMOD        QUDONG
+
+  -------         MODULE        XUNJI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:000EH         PUBLIC        xunji
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:0010H         PUBLIC        flag1
+  D:0012H         PUBLIC        flag2
+  B:0090H.0       PUBLIC        HW1
+  B:0090H.1       PUBLIC        HW2
+  B:0090H.2       PUBLIC        HW3
+  B:0090H.3       PUBLIC        HW4
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          XUNJI
+  C:000EH         LINE#         6
+  C:000EH         LINE#         7
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/18/2015  16:13:42  PAGE 6
+
+
+  C:000EH         LINE#         8
+  C:001AH         LINE#         9
+  C:001AH         LINE#         10
+  C:002FH         LINE#         11
+  C:002FH         LINE#         12
+  C:003BH         LINE#         13
+  C:003BH         LINE#         14
+  C:0049H         LINE#         15
+  C:004BH         LINE#         16
+  C:0057H         LINE#         17
+  C:0057H         LINE#         18
+  C:005DH         LINE#         19
+  C:005FH         LINE#         20
+  C:006BH         LINE#         21
+  C:006BH         LINE#         22
+  C:0080H         LINE#         23
+  C:0080H         LINE#         24
+  C:008CH         LINE#         25
+  C:008CH         LINE#         26
+  C:00A1H         LINE#         27
+  C:00A1H         LINE#         28
+  -------         ENDPROC       XUNJI
+  -------         ENDMOD        XUNJI
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?ZUOHOUTUI?QUDONG
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?YOUHOUTUI?QUDONG
+
+Program Size: data=21.0 xdata=0 code=486
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,180 @@
+C51 COMPILER V9.00   NRF24L01_RX                                                           04/16/2015 14:01:13 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE NRF24L01_RX
+OBJECT MODULE PLACED IN .\output\NRF24L01_RX.obj
+COMPILER INVOKED BY: d:\Keil\C51\BIN\C51.EXE NRF24L01_RX.c BROWSE DEBUG OBJECTEXTEND PRINT(.\list\NRF24L01_RX.lst) OBJEC
+                    -T(.\output\NRF24L01_RX.obj)
+
+line level    source
+
+   1          #include "nRF24L01_RX.h"
+   2          #include"delay.h"
+   3          
+   4          uchar sta; //×´Ì¬±äÁ¿ 
+   5          uchar code TX_Addr[]={0x34,0x43,0x10,0x10,0x01};//·¢ËÍµØÖ·
+   6          uchar code TX_Buffer1[]={0xfe};
+   7          uchar code TX_Buffer2[]={0xfb};
+   8          uchar code TX_Buffer3[]={0xfd};
+   9          uchar code TX_Buffer4[]={0xf7};
+  10          uchar RX_Buffer[RX_DATA_WITDH];
+  11          
+  12          //nRF24L01³õÊ¼»¯
+  13          void nRF24L01_Init(void)
+  14          {
+  15   1              CE=0;//´ý»úÄ£Ê½¢ñ
+  16   1              CSN=1;
+  17   1              SCK=0;
+  18   1              IRQ=1;
+  19   1      }
+  20          
+  21          
+  22          //SPIÊ±Ðòº¯Êý
+  23          uchar SPI_RW(uchar byte)
+  24          {
+  25   1              uchar i;
+  26   1              for(i=0;i<8;i++)//Ò»×Ö½Ú8Î»Ñ­»·8´ÎÐ´Èë
+  27   1              {
+  28   2                      if(byte&0x80)//Èç¹ûÊý¾Ý×î¸ßÎ»ÊÇ1
+  29   2                              MOSI=1;//ÏòNRF24L01Ð´1
+  30   2                      else //·ñÔòÐ´0
+  31   2                              MOSI=0;
+  32   2                      byte<<=1;//µÍÒ»Î»ÒÆµ½×î¸ßÎ»
+  33   2                      SCK=1;//SCKÀ­¸ß£¬Ð´ÈëÒ»Î»Êý¾Ý£¬Í¬Ê±¶ÁÈ¡Ò»Î»Êý¾Ý
+  34   2                      if(MISO)
+  35   2                              byte|=0x01;
+  36   2                      SCK=0;//SCKÀ­µÍ
+  37   2              }
+  38   1              return byte;//·µ»Ø¶ÁÈ¡Ò»×Ö½Ú 
+  39   1      }
+  40          
+  41          
+  42          //SPIÐ´¼Ä´æÆ÷Ò»×Ö½Úº¯Êý
+  43          //reg:¼Ä´æÆ÷µØÖ·
+  44          //value:Ò»×Ö½Ú£¨Öµ£©
+  45          uchar SPI_W_Reg(uchar reg,uchar value)
+  46          {
+  47   1              uchar status;//·µ»Ø×´Ì¬
+  48   1              CSN=0;//SPIÆ¬Ñ¡
+  49   1              status=SPI_RW(reg);//Ð´Èë¼Ä´æÆ÷µØÖ·£¬Í¬Ê±¶ÁÈ¡×´Ì¬
+  50   1              SPI_RW(value);//Ð´ÈëÒ»×Ö½Ú
+  51   1              CSN=1;//
+  52   1              return status;//·µ»Ø×´Ì¬
+  53   1      }
+  54          
+C51 COMPILER V9.00   NRF24L01_RX                                                           04/16/2015 14:01:13 PAGE 2   
+
+  55          
+  56          //SPI¶ÁÒ»×Ö½Ú
+  57          uchar SPI_R_byte(uchar reg)
+  58          {
+  59   1              uchar reg_value;
+  60   1              CSN=0;//SPIÆ¬Ñ¡
+  61   1              SPI_RW(reg);//Ð´ÈëµØÖ·
+  62   1              reg_value=SPI_RW(0);//¶ÁÈ¡¼Ä´æÆ÷µÄÖµ
+  63   1              CSN=1;
+  64   1              return reg_value;//·µ»Ø¶ÁÈ¡µÄÖµ
+  65   1      }
+  66          
+  67          
+  68          
+  69          //SPI¶ÁÈ¡RXFIFO¼Ä´æÆ÷Êý¾Ý
+  70          //reg:¼Ä´æÆ÷µØÖ·
+  71          //Dat_Buffer:ÓÃÀ´´æ¶ÁÈ¡µÄÊý¾Ý
+  72          //DLen:Êý¾Ý³¤¶È
+  73          uchar SPI_R_DBuffer(uchar reg,uchar *Dat_Buffer,uchar Dlen)
+  74          {
+  75   1              uchar status,i;
+  76   1              CSN=0;//SPIÆ¬Ñ¡
+  77   1              status=SPI_RW(reg);//Ð´Èë¼Ä´æÆ÷µØÖ·£¬Í¬Ê±×´Ì¬
+  78   1              for(i=0;i<Dlen;i++)
+  79   1              {
+  80   2                      Dat_Buffer[i]=SPI_RW(0);//´æ´¢Êý¾Ý
+  81   2              }
+  82   1              CSN=1;
+  83   1              return status;
+  84   1      }
+  85          
+  86          
+  87          //SPIÏòTXFIFO¼Ä´æÆ÷Ð´ÈëÊý¾Ý
+  88          //reg:Ð´Èë¼Ä´æÆ÷µØÖ·
+  89          //TX_Dat_Buffer:´æ·ÅÐèÒª·¢ËÍµÄÊý¾Ý
+  90          //Dlen:Êý¾Ý³¤¶È 
+  91          uchar SPI_W_DBuffer(uchar reg,uchar *TX_Dat_Buffer,uchar Dlen)
+  92          {
+  93   1              uchar status,i;
+  94   1              CSN=0;//SPIÆ¬Ñ¡£¬Æô¶¯Ê±Ðò
+  95   1              status=SPI_RW(reg);
+  96   1              for(i=0;i<Dlen;i++)
+  97   1              {
+  98   2                      SPI_RW(TX_Dat_Buffer[i]);//·¢ËÍÊý¾Ý
+  99   2              }
+ 100   1              CSN=1;
+ 101   1              return status;  
+ 102   1      }
+ 103          
+ 104          
+ 105          //ÉèÖÃ·¢ËÍÄ£Ê½
+ 106          void nRF24L01_Set_TX_Mode(uchar *TX_Data)
+ 107          {
+ 108   1              CE=0;//´ý»ú£¨Ð´¼Ä´æÆ÷Ö®Ç°Ò»¶¨Òª½øÈë´ý»úÄ£Ê½»òµôµçÄ£Ê½£©
+ 109   1              SPI_W_DBuffer(W_REGISTER+TX_ADDR,TX_Addr,TX_ADDR_WITDH);//Ð´¼Ä´æÆ÷Ö¸Áî+½ÓÊÕµØÖ·Ê¹ÄÜÖ¸Áî+½ÓÊÕµØÖ·+µØÖ·¿í¶È
+ 110   1              SPI_W_DBuffer(W_REGISTER+RX_ADDR_P0,TX_Addr,TX_ADDR_WITDH);//ÎªÁËÓ¦´ð½ÓÊÕÉè±¸£¬½ÓÊÕÍ¨µÀ0µØÖ·ºÍ·¢ËÍµØÖ·ÏàÍ
+             -¬
+ 111   1              SPI_W_DBuffer(W_TX_PLOAD,TX_Data,TX_DATA_WITDH);//Ð´ÓÐÐ§Êý¾ÝµØÖ·+ÓÐÐ§Êý¾Ý+ÓÐÐ§Êý¾Ý¿í¶È
+ 112   1              SPI_W_Reg(W_REGISTER+EN_AA,0x01); // Ê¹ÄÜ½ÓÊÕÍ¨µÀ0×Ô¶¯Ó¦´ð
+ 113   1              SPI_W_Reg(W_REGISTER+EN_RX_ADDR,0x01);// Ê¹ÄÜ½ÓÊÕÍ¨µÀ0
+ 114   1              SPI_W_Reg(W_REGISTER+SETUP_RETR,0x0a);//×Ô¶¯ÖØ·¢ÑÓÊ±250US+86US£¬ÖØ·¢10´Î
+ 115   1              SPI_W_Reg(W_REGISTER+RF_CH,0x40);//Ñ¡ÔñÉäÆµÍ¨µÀ0X40
+C51 COMPILER V9.00   NRF24L01_RX                                                           04/16/2015 14:01:13 PAGE 3   
+
+ 116   1              SPI_W_Reg(W_REGISTER+RF_SETUP,0x07);// Êý¾Ý´«ÊäÂÊ1Mbps£¬·¢Éä¹¦ÂÊ0dBm£¬µÍÔëÉù·Å´óÆ÷ÔöÒæ
+ 117   1              SPI_W_Reg(W_REGISTER+CONFIG,0x0e);// CRCÊ¹ÄÜ£¬16Î»CRCÐ£Ñé£¬ÉÏµç 
+ 118   1              CE=1;//Æô¶¯·¢Éä
+ 119   1              delay_ms(5);//CE¸ßµçÆ½³ÖÐøÊ±¼ä×îÉÙ10USÒÔÉÏ
+ 120   1      }
+ 121          
+ 122          uchar Check_Rec(void)
+ 123          {
+ 124   1              uchar status;
+ 125   1              sta=SPI_R_byte(R_REGISTER+STATUS);
+ 126   1              if(RX_DR)
+ 127   1              {
+ 128   2                      CE=0;
+ 129   2                      SPI_R_DBuffer(R_RX_PLOAD,RX_Buffer,RX_DATA_WITDH);
+ 130   2                      status=1;
+ 131   2              }
+ 132   1              SPI_W_Reg(W_REGISTER+STATUS,0xff);
+ 133   1              return status;  
+ 134   1      }
+ 135          
+ 136          
+ 137          //¼ì²âÓ¦´ðÐÅºÅ
+ 138          uchar Check_Ack(void)
+ 139          {
+ 140   1              sta=SPI_R_byte(R_REGISTER+STATUS);//¶ÁÈ¡¼Ä´æ×´Ì¬
+ 141   1              if(TX_DS||MAX_RT)//Èç¹ûTX_DS»òMAX_RTÎª1,ÔòÇå³ýÖÐ¶ÏºÍÇå³ýTX_FIFO¼Ä´æÆ÷µÄÖµ
+ 142   1              {
+ 143   2                      SPI_W_Reg(W_REGISTER+STATUS,0xff);
+ 144   2                      CSN=0;
+ 145   2                      SPI_RW(FLUSH_TX);//Èç¹ûÃ»ÓÐÕâÒ»¾äÖ»ÄÜ·¢Ò»´ÎÊý¾Ý£¬´ó¼ÒÒª×¢Òâ
+ 146   2                      CSN=1;
+ 147   2                      return 0;
+ 148   2              }
+ 149   1              else
+ 150   1                      return 1;
+ 151   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    343    ----
+   CONSTANT SIZE    =      9    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      9      14
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

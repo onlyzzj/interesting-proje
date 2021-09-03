@@ -1,0 +1,8 @@
+".\output\main.obj",
+".\output\delay.obj",
+".\output\NRF24L01_RX.obj",
+".\output\qudong.obj",
+".\output\xunji.obj",
+".\output\key.obj" 
+TO ".\output\24l01无线模块接收" 
+PRINT(".\list\24l01无线模块接收.m51") RAMSIZE(256) 

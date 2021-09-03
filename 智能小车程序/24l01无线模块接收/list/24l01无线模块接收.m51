@@ -1,0 +1,648 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        05/19/2015  21:28:34  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+D:\KEIL\C51\BIN\BL51.EXE .\output\main.obj, .\output\delay.obj, .\output\NRF24L01_RX.obj, .\output\qudong.obj, .\output\
+>> led.obj, .\output\xunji.obj TO .\output\24l01无线模块接收 PRINT (.\list\24l01无线模块接收.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\output\main.obj (MAIN)
+  .\output\delay.obj (DELAY)
+  .\output\NRF24L01_RX.obj (NRF24L01_RX)
+  .\output\qudong.obj (QUDONG)
+  .\output\led.obj (LED)
+  .\output\xunji.obj (XUNJI)
+  D:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?CLDOPTR)
+  D:\KEIL\C51\LIB\C51S.LIB (?C?CSTOPTR)
+
+
+LINK MAP OF MODULE:  .\output\24l01无线模块接收 (MAIN)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0009H     UNIT         ?DT?NRF24L01_RX
+            DATA    0011H     0005H     UNIT         _DATA_GROUP_
+            IDATA   0016H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0064H     UNIT         ?PR?LED?LED
+            CODE    0067H     005EH     UNIT         ?PR?QUDONG?QUDONG
+            CODE    00C5H     0056H     UNIT         ?PR?NRF24L01_SET_RX_MODE?NRF24L01_RX
+            CODE    011BH     004FH     UNIT         ?C?LIB_CODE
+            CODE    016AH     004CH     UNIT         ?PR?XUNJI?XUNJI
+            CODE    01B6H     0032H     UNIT         ?PR?NRF24L01_RX_DATA?NRF24L01_RX
+            CODE    01E8H     0031H     UNIT         ?PR?_SPI_R_DBUFFER?NRF24L01_RX
+            CODE    0219H     002FH     UNIT         ?PR?_SPI_W_DBUFFER?NRF24L01_RX
+            CODE    0248H     0020H     UNIT         ?PR?_DELAY_US?DELAY
+            CODE    0268H     0020H     UNIT         ?PR?_DELAY_MS?DELAY
+            CODE    0288H     001FH     UNIT         ?PR?_SPI_RW?NRF24L01_RX
+            CODE    02A7H     0011H     UNIT         ?PR?_SPI_W_REG?NRF24L01_RX
+            CODE    02B8H     0010H     UNIT         ?PR?NRF24L01_INIT?NRF24L01_RX
+            CODE    02C8H     000DH     UNIT         ?PR?_SPI_R_BYTE?NRF24L01_RX
+            CODE    02D5H     000DH     UNIT         ?CO?NRF24L01_RX
+            CODE    02E2H     000CH     UNIT         ?C_C51STARTUP
+            CODE    02EEH     0009H     UNIT         ?PR?ZHIXIAN?QUDONG
+            CODE    02F7H     0009H     UNIT         ?PR?STOP?QUDONG
+            CODE    0300H     0009H     UNIT         ?PR?HOUTUI?QUDONG
+            CODE    0309H     0009H     UNIT         ?PR?KUAIZUOZHUAN?QUDONG
+            CODE    0312H     0009H     UNIT         ?PR?KUAIYOUZHUAN?QUDONG
+            CODE    031BH     0009H     UNIT         ?PR?MANZUOZHUAN?QUDONG
+            CODE    0324H     0009H     UNIT         ?PR?MANYOUZHUAN?QUDONG
+            CODE    032DH     0005H     UNIT         ?PR?MAIN?MAIN
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2015  21:28:34  PAGE 2
+
+
+
+
+
+OVERLAY MAP OF MODULE:   .\output\24l01无线模块接收 (MAIN)
+
+
+SEGMENT                                        DATA_GROUP 
+  +--> CALLED SEGMENT                        START    LENGTH
+------------------------------------------------------------
+?C_C51STARTUP                                -----    -----
+  +--> ?PR?MAIN?MAIN
+
+?PR?MAIN?MAIN                                -----    -----
+  +--> ?PR?QUDONG?QUDONG
+
+?PR?QUDONG?QUDONG                            -----    -----
+  +--> ?PR?_DELAY_US?DELAY
+  +--> ?PR?NRF24L01_INIT?NRF24L01_RX
+  +--> ?PR?NRF24L01_SET_RX_MODE?NRF24L01_RX
+  +--> ?PR?_DELAY_MS?DELAY
+  +--> ?PR?NRF24L01_RX_DATA?NRF24L01_RX
+  +--> ?PR?ZHIXIAN?QUDONG
+  +--> ?PR?HOUTUI?QUDONG
+  +--> ?PR?MANZUOZHUAN?QUDONG
+  +--> ?PR?MANYOUZHUAN?QUDONG
+  +--> ?PR?KUAIYOUZHUAN?QUDONG
+  +--> ?PR?STOP?QUDONG
+  +--> ?PR?KUAIZUOZHUAN?QUDONG
+
+?PR?NRF24L01_INIT?NRF24L01_RX                -----    -----
+  +--> ?PR?_DELAY_US?DELAY
+
+?PR?NRF24L01_SET_RX_MODE?NRF24L01_RX         -----    -----
+  +--> ?CO?NRF24L01_RX
+  +--> ?PR?_SPI_W_DBUFFER?NRF24L01_RX
+  +--> ?PR?_SPI_W_REG?NRF24L01_RX
+  +--> ?PR?_DELAY_MS?DELAY
+
+?PR?_SPI_W_DBUFFER?NRF24L01_RX               0011H    0005H
+  +--> ?PR?_SPI_RW?NRF24L01_RX
+
+?PR?_SPI_W_REG?NRF24L01_RX                   -----    -----
+  +--> ?PR?_SPI_RW?NRF24L01_RX
+
+?PR?NRF24L01_RX_DATA?NRF24L01_RX             -----    -----
+  +--> ?PR?_SPI_R_BYTE?NRF24L01_RX
+  +--> ?PR?_SPI_R_DBUFFER?NRF24L01_RX
+  +--> ?PR?_SPI_W_REG?NRF24L01_RX
+  +--> ?PR?_SPI_RW?NRF24L01_RX
+
+?PR?_SPI_R_BYTE?NRF24L01_RX                  -----    -----
+  +--> ?PR?_SPI_RW?NRF24L01_RX
+
+?PR?_SPI_R_DBUFFER?NRF24L01_RX               0011H    0005H
+  +--> ?PR?_SPI_RW?NRF24L01_RX
+
+
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2015  21:28:34  PAGE 3
+
+
+
+SYMBOL TABLE OF MODULE:  .\output\24l01无线模块接收 (MAIN)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        MAIN
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:032DH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:032DH         LINE#         10
+  C:032DH         LINE#         11
+  C:032DH         LINE#         12
+  C:032DH         LINE#         13
+  C:032DH         LINE#         14
+  C:0330H         LINE#         15
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        MAIN
+
+  -------         MODULE        DELAY
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0268H         PUBLIC        _delay_ms
+  C:0248H         PUBLIC        _delay_us
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0002H         SYMBOL        i
+  D:0004H         SYMBOL        j
+  -------         ENDDO         
+  C:0248H         LINE#         3
+  C:0248H         LINE#         4
+  C:0248H         LINE#         6
+  C:0252H         LINE#         7
+  C:0267H         LINE#         8
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          _DELAY_MS
+  D:0006H         SYMBOL        x
+  -------         DO            
+  D:0002H         SYMBOL        i
+  D:0004H         SYMBOL        j
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2015  21:28:34  PAGE 4
+
+
+  -------         ENDDO         
+  C:0268H         LINE#         10
+  C:0268H         LINE#         11
+  C:0268H         LINE#         13
+  C:0272H         LINE#         14
+  C:0287H         LINE#         15
+  -------         ENDPROC       _DELAY_MS
+  -------         ENDMOD        DELAY
+
+  -------         MODULE        NRF24L01_RX
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  C:01B6H         PUBLIC        nRF24L01_RX_Data
+  B:0090H.3       PUBLIC        CE
+  C:02D5H         PUBLIC        TX_Addr
+  D:00A8H         PUBLIC        IE
+  C:02B8H         PUBLIC        nRF24L01_Init
+  D:00B8H         PUBLIC        IP
+  C:00C5H         PUBLIC        nRF24L01_Set_RX_Mode
+  C:01E8H         PUBLIC        _SPI_R_DBuffer
+  C:02A7H         PUBLIC        _SPI_W_Reg
+  C:0219H         PUBLIC        _SPI_W_DBuffer
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:02C8H         PUBLIC        _SPI_R_byte
+  B:0090H.6       PUBLIC        MISO
+  B:0090H.5       PUBLIC        MOSI
+  D:0008H         PUBLIC        sta
+  B:0090H.7       PUBLIC        SCK
+  B:0090H.4       PUBLIC        CSN
+  D:00C8H         PUBLIC        T2CON
+  D:0009H         PUBLIC        RX_Buffer
+  C:02DAH         PUBLIC        TX_Buffer
+  B:0090H.2       PUBLIC        IRQ
+  C:0288H         PUBLIC        _SPI_RW
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          NRF24L01_INIT
+  C:02B8H         LINE#         10
+  C:02B8H         LINE#         11
+  C:02B8H         LINE#         12
+  C:02BFH         LINE#         13
+  C:02C1H         LINE#         14
+  C:02C3H         LINE#         15
+  C:02C5H         LINE#         16
+  C:02C7H         LINE#         17
+  -------         ENDPROC       NRF24L01_INIT
+  -------         PROC          _SPI_RW
+  D:0007H         SYMBOL        byte
+  -------         DO            
+  D:0006H         SYMBOL        i
+  -------         ENDDO         
+  C:0288H         LINE#         19
+  C:0288H         LINE#         20
+  C:0288H         LINE#         22
+  C:028AH         LINE#         23
+  C:028AH         LINE#         24
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2015  21:28:34  PAGE 5
+
+
+  C:028EH         LINE#         25
+  C:0292H         LINE#         27
+  C:0294H         LINE#         28
+  C:0298H         LINE#         29
+  C:029AH         LINE#         30
+  C:029DH         LINE#         31
+  C:02A0H         LINE#         32
+  C:02A2H         LINE#         33
+  C:02A6H         LINE#         34
+  C:02A6H         LINE#         35
+  -------         ENDPROC       _SPI_RW
+  -------         PROC          _SPI_W_REG
+  D:0007H         SYMBOL        reg
+  D:0005H         SYMBOL        value
+  -------         DO            
+  D:0004H         SYMBOL        status
+  -------         ENDDO         
+  C:02A7H         LINE#         37
+  C:02A7H         LINE#         38
+  C:02A7H         LINE#         40
+  C:02A9H         LINE#         41
+  C:02AEH         LINE#         42
+  C:02B3H         LINE#         43
+  C:02B5H         LINE#         44
+  C:02B7H         LINE#         45
+  -------         ENDPROC       _SPI_W_REG
+  -------         PROC          _SPI_R_BYTE
+  D:0007H         SYMBOL        reg
+  -------         DO            
+  D:0007H         SYMBOL        status
+  -------         ENDDO         
+  C:02C8H         LINE#         47
+  C:02C8H         LINE#         48
+  C:02C8H         LINE#         50
+  C:02CAH         LINE#         51
+  C:02CDH         LINE#         52
+  C:02D2H         LINE#         53
+  C:02D4H         LINE#         54
+  C:02D4H         LINE#         55
+  -------         ENDPROC       _SPI_R_BYTE
+  -------         PROC          _SPI_R_DBUFFER
+  D:0007H         SYMBOL        reg
+  D:0012H         SYMBOL        Dat_Buffer
+  D:0015H         SYMBOL        Dlen
+  -------         DO            
+  D:0005H         SYMBOL        reg_value
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:01E8H         LINE#         57
+  C:01EEH         LINE#         58
+  C:01EEH         LINE#         60
+  C:01F0H         LINE#         61
+  C:01F5H         LINE#         62
+  C:01FDH         LINE#         63
+  C:01FDH         LINE#         64
+  C:0211H         LINE#         65
+  C:0214H         LINE#         66
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2015  21:28:34  PAGE 6
+
+
+  C:0216H         LINE#         67
+  C:0218H         LINE#         68
+  -------         ENDPROC       _SPI_R_DBUFFER
+  -------         PROC          _SPI_W_DBUFFER
+  D:0007H         SYMBOL        reg
+  D:0012H         SYMBOL        TX_Dat_Buffer
+  D:0015H         SYMBOL        Dlen
+  -------         DO            
+  D:0005H         SYMBOL        reg_value
+  D:0004H         SYMBOL        i
+  -------         ENDDO         
+  C:0219H         LINE#         70
+  C:021FH         LINE#         71
+  C:021FH         LINE#         73
+  C:0221H         LINE#         74
+  C:0226H         LINE#         75
+  C:022EH         LINE#         76
+  C:022EH         LINE#         77
+  C:0240H         LINE#         78
+  C:0243H         LINE#         79
+  C:0245H         LINE#         80
+  C:0247H         LINE#         81
+  -------         ENDPROC       _SPI_W_DBUFFER
+  -------         PROC          NRF24L01_SET_RX_MODE
+  C:00C5H         LINE#         83
+  C:00C5H         LINE#         84
+  C:00C5H         LINE#         85
+  C:00C7H         LINE#         86
+  C:00D5H         LINE#         87
+  C:00E3H         LINE#         88
+  C:00EAH         LINE#         89
+  C:00EFH         LINE#         90
+  C:00F6H         LINE#         91
+  C:00FDH         LINE#         92
+  C:0104H         LINE#         93
+  C:010BH         LINE#         94
+  C:0112H         LINE#         95
+  C:0114H         LINE#         96
+  -------         ENDPROC       NRF24L01_SET_RX_MODE
+  -------         PROC          NRF24L01_RX_DATA
+  C:01B6H         LINE#         99
+  C:01B6H         LINE#         100
+  C:01B6H         LINE#         101
+  C:01BDH         LINE#         102
+  C:01C2H         LINE#         103
+  C:01C2H         LINE#         104
+  C:01C4H         LINE#         105
+  C:01D2H         LINE#         106
+  C:01D9H         LINE#         107
+  C:01DBH         LINE#         108
+  C:01E0H         LINE#         109
+  C:01E2H         LINE#         110
+  C:01E5H         LINE#         111
+  C:01E5H         LINE#         113
+  C:01E7H         LINE#         115
+  -------         ENDPROC       NRF24L01_RX_DATA
+  -------         ENDMOD        NRF24L01_RX
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2015  21:28:34  PAGE 7
+
+
+
+  -------         MODULE        QUDONG
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  C:02EEH         PUBLIC        zhixian
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:0080H.1       PUBLIC        in1
+  B:0080H.0       PUBLIC        in2
+  B:0080H.2       PUBLIC        in3
+  B:0080H.3       PUBLIC        in4
+  D:00A8H         PUBLIC        IE
+  C:0067H         PUBLIC        qudong
+  D:00B8H         PUBLIC        IP
+  C:0300H         PUBLIC        houtui
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0312H         PUBLIC        kuaiyouzhuan
+  C:0309H         PUBLIC        kuaizuozhuan
+  C:0324H         PUBLIC        manyouzhuan
+  C:031BH         PUBLIC        manzuozhuan
+  C:02F7H         PUBLIC        stop
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          ZHIXIAN
+  C:02EEH         LINE#         3
+  C:02EEH         LINE#         4
+  C:02EEH         LINE#         5
+  C:02F0H         LINE#         6
+  C:02F2H         LINE#         7
+  C:02F4H         LINE#         8
+  C:02F6H         LINE#         9
+  -------         ENDPROC       ZHIXIAN
+  -------         PROC          STOP
+  C:02F7H         LINE#         10
+  C:02F7H         LINE#         11
+  C:02F7H         LINE#         12
+  C:02F9H         LINE#         13
+  C:02FBH         LINE#         14
+  C:02FDH         LINE#         15
+  C:02FFH         LINE#         16
+  -------         ENDPROC       STOP
+  -------         PROC          HOUTUI
+  C:0300H         LINE#         17
+  C:0300H         LINE#         18
+  C:0300H         LINE#         19
+  C:0302H         LINE#         20
+  C:0304H         LINE#         21
+  C:0306H         LINE#         22
+  C:0308H         LINE#         23
+  -------         ENDPROC       HOUTUI
+  -------         PROC          KUAIZUOZHUAN
+  C:0309H         LINE#         24
+  C:0309H         LINE#         25
+  C:0309H         LINE#         26
+  C:030BH         LINE#         27
+  C:030DH         LINE#         28
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2015  21:28:34  PAGE 8
+
+
+  C:030FH         LINE#         29
+  C:0311H         LINE#         30
+  -------         ENDPROC       KUAIZUOZHUAN
+  -------         PROC          KUAIYOUZHUAN
+  C:0312H         LINE#         31
+  C:0312H         LINE#         32
+  C:0312H         LINE#         33
+  C:0314H         LINE#         34
+  C:0316H         LINE#         35
+  C:0318H         LINE#         36
+  C:031AH         LINE#         37
+  -------         ENDPROC       KUAIYOUZHUAN
+  -------         PROC          MANZUOZHUAN
+  C:031BH         LINE#         38
+  C:031BH         LINE#         39
+  C:031BH         LINE#         40
+  C:031DH         LINE#         41
+  C:031FH         LINE#         42
+  C:0321H         LINE#         43
+  C:0323H         LINE#         44
+  -------         ENDPROC       MANZUOZHUAN
+  -------         PROC          MANYOUZHUAN
+  C:0324H         LINE#         45
+  C:0324H         LINE#         46
+  C:0324H         LINE#         47
+  C:0326H         LINE#         48
+  C:0328H         LINE#         49
+  C:032AH         LINE#         50
+  C:032CH         LINE#         51
+  -------         ENDPROC       MANYOUZHUAN
+  -------         PROC          QUDONG
+  C:0067H         LINE#         54
+  C:0067H         LINE#         55
+  C:0067H         LINE#         56
+  C:006EH         LINE#         57
+  C:0071H         LINE#         58
+  C:0071H         LINE#         59
+  C:0071H         LINE#         60
+  C:0074H         LINE#         61
+  C:007BH         LINE#         62
+  C:0081H         LINE#         63
+  C:0081H         LINE#         64
+  C:0086H         LINE#         65
+  C:0086H         LINE#         66
+  C:0089H         LINE#         67
+  C:0089H         LINE#         68
+  C:008EH         LINE#         69
+  C:008EH         LINE#         70
+  C:0091H         LINE#         71
+  C:0091H         LINE#         72
+  C:0096H         LINE#         73
+  C:0096H         LINE#         74
+  C:0099H         LINE#         75
+  C:0099H         LINE#         76
+  C:009EH         LINE#         77
+  C:009EH         LINE#         78
+  C:00A1H         LINE#         79
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2015  21:28:34  PAGE 9
+
+
+  C:00A1H         LINE#         80
+  C:00A6H         LINE#         81
+  C:00A6H         LINE#         82
+  C:00A9H         LINE#         83
+  C:00A9H         LINE#         84
+  C:00AEH         LINE#         85
+  C:00AEH         LINE#         86
+  C:00B1H         LINE#         87
+  C:00B1H         LINE#         88
+  C:00B6H         LINE#         89
+  C:00B6H         LINE#         90
+  C:00B9H         LINE#         91
+  C:00B9H         LINE#         92
+  C:00BBH         LINE#         94
+  C:00BBH         LINE#         95
+  C:00BDH         LINE#         96
+  C:00BFH         LINE#         97
+  C:00C1H         LINE#         98
+  C:00C3H         LINE#         99
+  C:00C3H         LINE#         100
+  -------         ENDPROC       QUDONG
+  -------         ENDMOD        QUDONG
+
+  -------         MODULE        LED
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:0080H.0       PUBLIC        LED1
+  B:0080H.1       PUBLIC        LED2
+  B:0080H.2       PUBLIC        LED3
+  B:0080H.3       PUBLIC        LED4
+  B:0080H.4       PUBLIC        LED5
+  B:0080H.5       PUBLIC        LED6
+  B:0080H.6       PUBLIC        LED7
+  B:0080H.7       PUBLIC        LED8
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0003H         PUBLIC        led
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          LED
+  C:0003H         LINE#         4
+  C:0003H         LINE#         5
+  C:0003H         LINE#         6
+  C:000AH         LINE#         7
+  C:000DH         LINE#         8
+  C:0010H         LINE#         9
+  C:0017H         LINE#         10
+  C:001DH         LINE#         11
+  C:001DH         LINE#         12
+  C:0022H         LINE#         13
+  C:0022H         LINE#         14
+  C:0024H         LINE#         15
+  C:0024H         LINE#         16
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2015  21:28:34  PAGE 10
+
+
+  C:0029H         LINE#         17
+  C:0029H         LINE#         18
+  C:002BH         LINE#         19
+  C:002BH         LINE#         20
+  C:0030H         LINE#         21
+  C:0030H         LINE#         22
+  C:0032H         LINE#         23
+  C:0032H         LINE#         24
+  C:0037H         LINE#         25
+  C:0037H         LINE#         26
+  C:0039H         LINE#         27
+  C:0039H         LINE#         28
+  C:003EH         LINE#         29
+  C:003EH         LINE#         30
+  C:0040H         LINE#         31
+  C:0040H         LINE#         32
+  C:0045H         LINE#         33
+  C:0045H         LINE#         34
+  C:0047H         LINE#         35
+  C:0047H         LINE#         36
+  C:004CH         LINE#         37
+  C:004CH         LINE#         38
+  C:004EH         LINE#         39
+  C:004EH         LINE#         40
+  C:0053H         LINE#         41
+  C:0053H         LINE#         42
+  C:0055H         LINE#         43
+  C:0055H         LINE#         44
+  C:0056H         LINE#         46
+  C:0056H         LINE#         47
+  C:0058H         LINE#         48
+  C:005AH         LINE#         49
+  C:005CH         LINE#         50
+  C:005EH         LINE#         51
+  C:0060H         LINE#         52
+  C:0062H         LINE#         53
+  C:0064H         LINE#         54
+  C:0066H         LINE#         55
+  C:0066H         LINE#         56
+  -------         ENDPROC       LED
+  -------         ENDMOD        LED
+
+  -------         MODULE        XUNJI
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:016AH         PUBLIC        xunji
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  B:0090H.0       PUBLIC        HW1
+  B:0090H.1       PUBLIC        HW2
+  B:0090H.2       PUBLIC        HW3
+  B:0090H.3       PUBLIC        HW4
+  D:00C8H         PUBLIC        T2CON
+BL51 BANKED LINKER/LOCATER V6.22                                                      05/19/2015  21:28:34  PAGE 11
+
+
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          XUNJI
+  C:016AH         LINE#         4
+  C:016AH         LINE#         5
+  C:016AH         LINE#         6
+  C:0176H         LINE#         7
+  C:0176H         LINE#         8
+  C:0179H         LINE#         9
+  C:0179H         LINE#         10
+  C:0185H         LINE#         11
+  C:0185H         LINE#         12
+  C:0188H         LINE#         13
+  C:0188H         LINE#         14
+  C:0194H         LINE#         15
+  C:0194H         LINE#         16
+  C:0197H         LINE#         17
+  C:0197H         LINE#         18
+  C:01A3H         LINE#         19
+  C:01A3H         LINE#         20
+  C:01A6H         LINE#         21
+  C:01A6H         LINE#         22
+  C:01B2H         LINE#         23
+  C:01B2H         LINE#         24
+  C:01B5H         LINE#         25
+  C:01B5H         LINE#         30
+  -------         ENDPROC       XUNJI
+  -------         ENDMOD        XUNJI
+
+  -------         MODULE        ?C?CLDOPTR
+  C:011BH         PUBLIC        ?C?CLDOPTR
+  -------         ENDMOD        ?C?CLDOPTR
+
+  -------         MODULE        ?C?CSTOPTR
+  C:0148H         PUBLIC        ?C?CSTOPTR
+  -------         ENDMOD        ?C?CSTOPTR
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?LED?LED
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?XUNJI?XUNJI
+
+Program Size: data=23.0 xdata=0 code=818
+LINK/LOCATE RUN COMPLETE.  2 WARNING(S),  0 ERROR(S)

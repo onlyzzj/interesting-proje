@@ -1,0 +1,63 @@
+C51 COMPILER V9.00   QUDONG                                                                05/18/2015 16:13:08 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE QUDONG
+OBJECT MODULE PLACED IN .\output\qudong.obj
+COMPILER INVOKED BY: d:\Keil\C51\BIN\C51.EXE qudong.c BROWSE DEBUG OBJECTEXTEND PRINT(.\list\qudong.lst) OBJECT(.\output
+                    -\qudong.obj)
+
+line level    source
+
+   1          #include"qudong.h"
+   2          
+   3          void zhixian(void)//前进
+   4          {
+   5   1              in1=0;
+   6   1              in2=1;
+   7   1              in3=1;
+   8   1              in4=0;  
+   9   1      } 
+  10          
+  11          void kuaizuozhuan(void)//快速左转
+  12          {
+  13   1              in1=1;
+  14   1              in2=0;
+  15   1              in3=1;
+  16   1              in4=0;
+  17   1      }
+  18          void kuaiyouzhuan(void)//快速右转
+  19          {
+  20   1              in1=0;
+  21   1              in2=1;
+  22   1              in3=0;
+  23   1              in4=1;
+  24   1      } 
+  25          void manzuozhuan(void)//慢左转
+  26          {
+  27   1              in1=0;
+  28   1              in2=0;
+  29   1              in3=1;
+  30   1              in4=0;
+  31   1      }
+  32          void manyouzhuan(void)//慢右转
+  33          {
+  34   1              in1=0;
+  35   1              in2=1;
+  36   1              in3=0;
+  37   1              in4=0;
+  38   1      }
+  39          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     45    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

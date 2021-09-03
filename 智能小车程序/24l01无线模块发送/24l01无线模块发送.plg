@@ -1,0 +1,177 @@
+<html>
+<body>
+<pre>
+<h1>礦ision Build Log</h1>
+<h2>Project:</h2>
+E:\24l01无线模块发送\24l01无线模块发送.uvproj
+Project File Date:  04/14/2015
+
+<h2>Output:</h2>
+Build target 'Target 1'
+compiling main.c...
+compiling NRF24L01_RX.c...
+linking...
+*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
+Program Size: data=0.0 xdata=0 code=0
+creating hex file from ".\output\24l01无线模块发送"...
+".\output\24l01无线模块发送" - 0 Error(s), 1 Warning(s).
+Build target 'Target 1'
+compiling main.c...
+compiling NRF24L01_RX.c...
+compiling delay.c...
+DELAY.C(3): error C141: syntax error near 'x', expected ')'
+DELAY.C(5): error C141: syntax error near 'i'
+DELAY.C(5): error C202: 'i': undefined identifier
+DELAY.C(6): error C202: 'j': undefined identifier
+DELAY.C(7): error C202: 'i': undefined identifier
+DELAY.C(10): error C141: syntax error near 'x', expected ')'
+DELAY.C(12): error C141: syntax error near 'i'
+DELAY.C(12): error C202: 'i': undefined identifier
+DELAY.C(13): error C202: 'j': undefined identifier
+DELAY.C(14): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+compiling NRF24L01_RX.c...
+compiling delay.c...
+DELAY.C(3): error C141: syntax error near 'x', expected ')'
+DELAY.C(5): error C141: syntax error near 'i'
+DELAY.C(5): error C202: 'i': undefined identifier
+DELAY.C(6): error C202: 'j': undefined identifier
+DELAY.C(7): error C202: 'i': undefined identifier
+DELAY.C(10): error C141: syntax error near 'x', expected ')'
+DELAY.C(12): error C141: syntax error near 'i'
+DELAY.C(12): error C202: 'i': undefined identifier
+DELAY.C(13): error C202: 'j': undefined identifier
+DELAY.C(14): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+compiling NRF24L01_RX.c...
+compiling delay.c...
+DELAY.C(3): error C141: syntax error near 'x', expected ')'
+DELAY.C(5): error C141: syntax error near 'i'
+DELAY.C(5): error C202: 'i': undefined identifier
+DELAY.C(6): error C202: 'j': undefined identifier
+DELAY.C(7): error C202: 'i': undefined identifier
+DELAY.C(10): error C141: syntax error near 'x', expected ')'
+DELAY.C(12): error C141: syntax error near 'i'
+DELAY.C(12): error C202: 'i': undefined identifier
+DELAY.C(13): error C202: 'j': undefined identifier
+DELAY.C(14): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+compiling NRF24L01_RX.c...
+compiling delay.c...
+DELAY.C(3): error C141: syntax error near 'x', expected ')'
+DELAY.C(5): error C141: syntax error near 'i'
+DELAY.C(5): error C202: 'i': undefined identifier
+DELAY.C(6): error C202: 'j': undefined identifier
+DELAY.C(7): error C202: 'i': undefined identifier
+DELAY.C(10): error C141: syntax error near 'x', expected ')'
+DELAY.C(12): error C141: syntax error near 'i'
+DELAY.C(12): error C202: 'i': undefined identifier
+DELAY.C(13): error C202: 'j': undefined identifier
+DELAY.C(14): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+compiling NRF24L01_RX.c...
+compiling delay.c...
+DELAY.C(3): error C141: syntax error near 'x', expected ')'
+DELAY.C(5): error C141: syntax error near 'i'
+DELAY.C(5): error C202: 'i': undefined identifier
+DELAY.C(6): error C202: 'j': undefined identifier
+DELAY.C(7): error C202: 'i': undefined identifier
+DELAY.C(10): error C141: syntax error near 'x', expected ')'
+DELAY.C(12): error C141: syntax error near 'i'
+DELAY.C(12): error C202: 'i': undefined identifier
+DELAY.C(13): error C202: 'j': undefined identifier
+DELAY.C(14): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(3): error C300: unterminated comment
+compiling NRF24L01_RX.c...
+NRF24L01_RX.c(1): error C300: unterminated comment
+compiling delay.c...
+DELAY.C(3): error C141: syntax error near 'x', expected ')'
+DELAY.C(5): error C141: syntax error near 'i'
+DELAY.C(5): error C202: 'i': undefined identifier
+DELAY.C(6): error C202: 'j': undefined identifier
+DELAY.C(7): error C202: 'i': undefined identifier
+DELAY.C(10): error C141: syntax error near 'x', expected ')'
+DELAY.C(12): error C141: syntax error near 'i'
+DELAY.C(12): error C202: 'i': undefined identifier
+DELAY.C(13): error C202: 'j': undefined identifier
+DELAY.C(14): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(3): error C300: unterminated comment
+compiling NRF24L01_RX.c...
+NRF24L01_RX.c(1): error C300: unterminated comment
+compiling delay.c...
+DELAY.C(3): error C141: syntax error near 'x', expected ')'
+DELAY.C(5): error C141: syntax error near 'i'
+DELAY.C(5): error C202: 'i': undefined identifier
+DELAY.C(6): error C202: 'j': undefined identifier
+DELAY.C(7): error C202: 'i': undefined identifier
+DELAY.C(10): error C141: syntax error near 'x', expected ')'
+DELAY.C(12): error C141: syntax error near 'i'
+DELAY.C(12): error C202: 'i': undefined identifier
+DELAY.C(13): error C202: 'j': undefined identifier
+DELAY.C(14): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(3): error C300: unterminated comment
+compiling NRF24L01_RX.c...
+NRF24L01_RX.c(1): error C300: unterminated comment
+compiling delay.c...
+DELAY.C(3): error C141: syntax error near 'x', expected ')'
+DELAY.C(5): error C141: syntax error near 'i'
+DELAY.C(5): error C202: 'i': undefined identifier
+DELAY.C(6): error C202: 'j': undefined identifier
+DELAY.C(7): error C202: 'i': undefined identifier
+DELAY.C(10): error C141: syntax error near 'x', expected ')'
+DELAY.C(12): error C141: syntax error near 'i'
+DELAY.C(12): error C202: 'i': undefined identifier
+DELAY.C(13): error C202: 'j': undefined identifier
+DELAY.C(14): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(3): error C300: unterminated comment
+compiling NRF24L01_RX.c...
+NRF24L01_RX.c(1): error C300: unterminated comment
+compiling delay.c...
+DELAY.C(3): error C141: syntax error near 'x', expected ')'
+DELAY.C(5): error C141: syntax error near 'i'
+DELAY.C(5): error C202: 'i': undefined identifier
+DELAY.C(6): error C202: 'j': undefined identifier
+DELAY.C(7): error C202: 'i': undefined identifier
+DELAY.C(10): error C141: syntax error near 'x', expected ')'
+DELAY.C(12): error C141: syntax error near 'i'
+DELAY.C(12): error C202: 'i': undefined identifier
+DELAY.C(13): error C202: 'j': undefined identifier
+DELAY.C(14): error C202: 'i': undefined identifier
+Target not created
+Build target 'Target 1'
+compiling main.c...
+main.c(3): error C300: unterminated comment
+compiling NRF24L01_RX.c...
+NRF24L01_RX.c(1): error C300: unterminated comment
+compiling delay.c...
+DELAY.C(3): error C141: syntax error near 'x', expected ')'
+DELAY.C(5): error C141: syntax error near 'i'
+DELAY.C(5): error C202: 'i': undefined identifier
+DELAY.C(6): error C202: 'j': undefined identifier
+DELAY.C(7): error C202: 'i': undefined identifier
+DELAY.C(10): error C141: syntax error near 'x', expected ')'
+DELAY.C(12): error C141: syntax error near 'i'
+DELAY.C(12): error C202: 'i': undefined identifier
+DELAY.C(13): error C202: 'j': undefined identifier
+DELAY.C(14): error C202: 'i': undefined identifier
+Target not created
