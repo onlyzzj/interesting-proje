@@ -1,0 +1,134 @@
+<stdint.h> C99中引进的一个标准C库的头文件
+
+typedef   signed          char int8_t;       有符号字符型     -128——+127
+typedef   signed short     int int16_t;      有符号短整型     -32768——+32767
+typedef   signed           int int32_t;      有符号长整型     -2147483648——+2147483647
+typedef   signed       __int64 int64_t;      有符号双长整型   -9223372036854775808——+9223372036854775807
+
+
+typedef unsigned          char uint8_t;      无符号字符型     0——+255
+typedef unsigned short     int uint16_t;     无符号短整型     0——+65535
+typedef unsigned           int uint32_t;     无符号长整型     0——+4294967295
+typedef unsigned       __int64 uint64_t;     无符号双长整型   0——+18446744073709551615
+
+
+typedef   signed          char int_least8_t;
+typedef   signed short     int int_least16_t;
+typedef   signed           int int_least32_t;
+typedef   signed       __int64 int_least64_t;
+
+
+typedef unsigned          char uint_least8_t;
+typedef unsigned short     int uint_least16_t;
+typedef unsigned           int uint_least32_t;
+typedef unsigned       __int64 uint_least64_t;
+
+
+typedef   signed           int int_fast8_t;
+typedef   signed           int int_fast16_t;
+typedef   signed           int int_fast32_t;
+typedef   signed       __int64 int_fast64_t;
+
+
+typedef unsigned           int uint_fast8_t;
+typedef unsigned           int uint_fast16_t;
+typedef unsigned           int uint_fast32_t;
+typedef unsigned       __int64 uint_fast64_t;
+
+
+typedef   signed           int intptr_t;
+typedef unsigned           int uintptr_t;
+
+
+typedef   signed       __int64 intmax_t;
+typedef unsigned       __int64 uintmax_t;
+
+
+
+float         单精度浮点型      32位        3.4×10^-38~3.4×10^38                 float类型精确到小数点后6位
+double        双精度浮点型      64位        1.7×10^-308~1.7×10^308               double类型精确到小数点后15位
+long double   长精度浮点类型               1.7×10^-308~1.7×10^308               long double类型精确到小数点后15位
+
+
+
+
+
+
+
+
+<stm32f4xx.h>
+
+typedef int32_t  s32;          易挥发只读有符号32位数据                有符号长整型     -2147483648——+2147483647
+typedef int16_t  s16;          易挥发只读有符号16位数据                有符号短整型     -32768——+32767
+typedef int8_t   s8;           易挥发只读有符号8位数据                 有符号字符型     -128——+127
+
+
+
+typedef const int32_t sc32;    只读有符号32位数据/*!< Read Only */
+typedef const int16_t sc16;    只读有符号16位数据 /*!< Read Only */
+typedef const int8_t  sc8;     只读有符号8位数据/*!< Read Only */
+
+
+
+typedef __IO int32_t  vs32;     易挥发读写访问有符号32位数据
+typedef __IO int16_t  vs16;     易挥发读写访问有符号16位数据
+typedef __IO int8_t   vs8;      易挥发读写访问有符号8位数据
+
+
+
+typedef __I int32_t vsc32;      易挥发只读有符号32位数据/*!< Read Only */
+typedef __I int16_t vsc16;      易挥发只读有符号16位数据/*!< Read Only */
+typedef __I int8_t  vsc8;       易挥发只读有符号8位数据/*!< Read Only */
+
+
+
+typedef uint32_t  u32;          无符号32位数据                         无符号长整型     0——+4294967295
+typedef uint16_t  u16;          无符号16位数据                         无符号短整型     0——+65535
+typedef uint8_t   u8;           无符号8位数据                          无符号字符型     0——+255
+
+
+
+typedef const uint32_t uc32;    只读无符号32位数据/*!< Read Only */
+typedef const uint16_t uc16;    只读无符号16位数据/*!< Read Only */
+typedef const uint8_t  uc8;     只读无符号8位数据/*!< Read Only */
+
+
+
+typedef __IO uint32_t  vu32;    易挥发读写访问无符号32位数据
+typedef __IO uint16_t  vu16;    易挥发读写访问无符号16位数据
+typedef __IO uint8_t   vu8;     易挥发读写访问无符号8位数据
+
+
+
+typedef __I uint32_t vuc32;     易挥发只读无符号32位数据/*!< Read Only */
+typedef __I uint16_t vuc16;     易挥发只读无符号16位数据/*!< Read Only */
+typedef __I uint8_t  vuc8;      易挥发只读无符号8位数据/*!< Read Only */ 
+
+
+typedef enum{RESET=0,SET=!RESET}FlagStatus,ITStatus;
+typedef enum{DISABLE=0,ENABLE=!DISABLE}FunctionalState;
+typedef enum{ERROR=0,SUCCESS=!ERROR}ErrorStatus;
+
+
+
+
+
+
+
+
+
+
+<core_cm4.h>主要针对动态、静态变量修饰符进行宏定义
+
+#ifdef __cplusplus
+  #define   __I     volatile          定义只读权限
+#else
+  #define   __I     volatile const    定义只读权限
+#endif
+#define     __O     volatile          定义只写权限
+#define     __IO    volatile          定义读和写权限
+
+
+
+
+
